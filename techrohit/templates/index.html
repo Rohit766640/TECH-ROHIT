@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rohit Pawar | Data Engineering Portfolio</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+<style>
+    
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #182334;
+}
+
+a {
+    text-decoration: none;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.custom-navbar {
+    background: rgba(4, 14, 29, 0.90);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    color: white;
+}
+
+.navbar-brand i,
+.navbar-brand span {
+    color: #00d9ff;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    margin: 0 7px;
+    transition: .3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #00d9ff !important;
+}
+
+.btn-login {
+    border: 1px solid #00d9ff;
+    color: #00d9ff;
+    border-radius: 30px;
+    padding: 8px 20px;
+}
+
+.btn-login:hover {
+    background: #00d9ff;
+    color: #06111f;
+}
+
+.btn-register {
+    background: #00d9ff;
+    color: #06111f;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-weight: bold;
+}
+
+.btn-register:hover {
+    background: white;
+    color: #06111f;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-section {
+    min-height: 100vh;
+
+    background-image:
+        url("https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=2000&q=85");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2,10,22,.96),
+            rgba(2,10,22,.75),
+            rgba(2,10,22,.40)
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+}
+
+.hero-small-title {
+    color: #00d9ff;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: clamp(42px, 6vw, 75px);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.hero-content h1 span {
+    color: #00d9ff;
+}
+
+.hero-description {
+    max-width: 650px;
+    color: #dce8f2;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-top: 25px;
+}
+
+.hero-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary-custom {
+    background: #00d9ff;
+    color: #03101d;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    border: none;
+}
+
+.btn-primary-custom:hover {
+    background: white;
+    color: #03101d;
+}
+
+.btn-outline-light-custom {
+    border: 1px solid white;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 30px;
+}
+
+.btn-outline-light-custom:hover {
+    background: white;
+    color: #03101d;
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title span {
+    color: #00aaca;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    font-size: 42px;
+    font-weight: 800;
+    margin: 10px 0 15px;
+}
+
+.section-title p {
+    max-width: 700px;
+    margin: auto;
+    color: #697586;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   ABOUT
+===================================================== */
+
+.about-image {
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.about-image:hover img {
+    transform: scale(1.05);
+}
+
+#about h3 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+#about p {
+    color: #667085;
+    line-height: 1.8;
+}
+
+.about-info {
+    margin-bottom: 15px;
+}
+
+.about-info strong {
+    display: block;
+    color: #182334;
+}
+
+.about-info span {
+    color: #687586;
+}
+
+
+/* =====================================================
+   SERVICES
+===================================================== */
+
+.services-section,
+.projects-section,
+.contact-section {
+    background: #f5f8fb;
+}
+
+.service-card {
+    background: white;
+    border-radius: 18px;
+    padding: 35px;
+    height: 100%;
+
+    border: 1px solid #e6edf3;
+
+    transition: .3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0,0,0,.10);
+}
+
+.service-card > i {
+    font-size: 45px;
+    color: #00aaca;
+}
+
+.service-card h4 {
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.service-card p {
+    color: #6b7787;
+    line-height: 1.7;
+}
+
+.service-card a {
+    color: #00aaca;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   SKILLS
+===================================================== */
+
+.skill-card {
+    background: white;
+    border: 1px solid #e5ebf1;
+    padding: 25px;
+    border-radius: 15px;
+    height: 100%;
+    transition: .3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
+}
+
+.skill-card i {
+    font-size: 38px;
+    color: #00aaca;
+}
+
+.skill-card h5 {
+    margin: 15px 0;
+    font-weight: 700;
+}
+
+.progress {
+    height: 8px;
+    background: #e7edf2;
+}
+
+.progress-bar {
+    background: #00aaca;
+}
+
+
+/* =====================================================
+   PROJECTS
+===================================================== */
+
+.project-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 100%;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-content span {
+    color: #00aaca;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.project-content h4 {
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.project-content p {
+    color: #6b7787;
+    line-height: 1.6;
+}
+
+.project-content a {
+    color: #00aaca;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   EDUCATION TIMELINE
+===================================================== */
+
+.timeline {
+    max-width: 900px;
+    margin: auto;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #00aaca;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 80px;
+    margin-bottom: 45px;
+}
+
+.timeline-icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 60px;
+    height: 60px;
+
+    background: #00aaca;
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 23px;
+}
+
+.timeline-content {
+    background: #f5f8fb;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+.timeline-content span {
+    color: #00aaca;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.timeline-content h3 {
+    margin-top: 8px;
+    font-size: 22px;
+}
+
+.timeline-content p {
+    color: #687586;
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-section {
+    background: #f5f8fb;
+}
+
+.contact-section h3 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.contact-section > .container > .row p {
+    color: #697586;
+    line-height: 1.7;
+}
+
+.contact-info {
+    margin-top: 30px;
+}
+
+.contact-info > div {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.contact-info i {
+    width: 50px;
+    height: 50px;
+
+    background: #00aaca;
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.contact-info strong {
+    display: block;
+}
+
+.contact-info p {
+    margin: 3px 0;
+}
+
+.contact-form {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.07);
+}
+
+.form-control {
+    padding: 13px 15px;
+    border: 1px solid #dce4eb;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    border-color: #00aaca;
+    box-shadow: 0 0 0 3px rgba(0,170,202,.10);
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.social-links a,
+.footer-social a {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #06111f;
+    color: white;
+
+    transition: .3s;
+}
+
+.social-links a:hover,
+.footer-social a:hover {
+    background: #00aaca;
+    color: white;
+    transform: translateY(-4px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+    background: #06111f;
+    color: #c8d3df;
+    padding: 70px 0 20px;
+}
+
+.footer h3 {
+    color: white;
+}
+
+.footer h3 i,
+.footer h3 span {
+    color: #00d9ff;
+}
+
+.footer p {
+    line-height: 1.7;
+    color: #9eabb8;
+}
+
+.footer h5 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+}
+
+.footer li {
+    margin-bottom: 10px;
+}
+
+.footer li a {
+    color: #9eabb8;
+    transition: .3s;
+}
+
+.footer li a:hover {
+    color: #00d9ff;
+}
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+}
+
+.footer hr {
+    border-color: #273444;
+    margin: 40px 0 20px;
+}
+
+.copyright {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.copyright p {
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .navbar-nav {
+        margin-top: 20px;
+    }
+
+    .nav-link {
+        margin: 5px 0;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .section-padding {
+        padding: 70px 0;
+    }
+
+    .section-title h2 {
+        font-size: 34px;
+    }
+
+    .about-image img {
+        height: 300px;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 60px;
+    }
+
+    .timeline-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 17px;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .contact-form {
+        padding: 20px;
+    }
+
+    .copyright {
+        display: block;
+        text-align: center;
+    }
+
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="#home">
+            <i class="bi bi-database-fill"></i>
+            TECH-<span>ROHIT</span>
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#education">Education</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+            <div class="d-flex gap-2 mt-3 mt-lg-0">
+
+                 
+
+            </div>
+
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section id="home" class="hero-section">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <p class="hero-small-title">
+                    <i class="bi bi-bar-chart-fill"></i>
+                    DATA ENGINEERING PORTFOLIO
+                </p>
+
+                <h1>
+                    Building the Future
+                    <br>
+                    with <span>Data Engineering</span>
+                </h1>
+
+                <p class="hero-description">
+                    Hi, I'm Rohit Pawar. I am passionate about Data Science,
+                    Data Engineering, Python, SQL, databases and building
+                    scalable data solutions.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projects"
+                       class="btn btn-primary-custom">
+                        View My Projects
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                    <a href="#contact"
+                       class="btn btn-outline-light-custom">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT SECTION
+===================================================== -->
+
+<section id="about" class="section-padding">
+
+    <div class="container">
+
+        <div class="section-title">
+            <span>ABOUT ME</span>
+            <h2>Who I Am</h2>
+
+            <p>
+                Passionate about transforming raw data into meaningful
+                information and building reliable data systems.
+            </p>
+        </div>
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5">
+
+                <div class="about-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=80"
+                        alt="Data Engineering">
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-7">
+
+                <h3>
+                    Data Science Engineering Student &
+                    Aspiring Data Engineer
+                </h3>
+
+                <p>
+                    I am interested in designing data pipelines,
+                    databases, ETL processes and analytics solutions.
+                    My goal is to become a professional Data Engineer
+                    and work with modern data technologies.
+                </p>
+
+                <p>
+                    I enjoy learning Python, SQL, database systems,
+                    cloud technologies, data visualization and
+                    machine learning concepts.
+                </p>
+
+                <div class="row mt-4">
+
+                    <div class="col-md-6">
+                        <div class="about-info">
+                            <strong>Name:</strong>
+                            <span>Rohit Pawar</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="about-info">
+                            <strong>Role:</strong>
+                            <span>Data Engineering Student</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="about-info">
+                            <strong>Focus:</strong>
+                            <span>Data Engineering</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="about-info">
+                            <strong>Location:</strong>
+                            <span>India</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <a href="#contact"
+                   class="btn btn-primary-custom mt-4">
+                    Let's Work Together
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section id="services"
+         class="section-padding services-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>WHAT I DO</span>
+
+            <h2>My Services</h2>
+
+            <p>
+                I work with modern technologies to create scalable,
+                reliable and useful data solutions.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Service 1 -->
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <i class="bi bi-database-fill"></i>
+
+                    <h4>Data Engineering</h4>
+
+                    <p>
+                        Design and develop reliable data systems,
+                        pipelines and data processing workflows.
+                    </p>
+
+                    <a href="#contact">Read More →</a>
+
+                </div>
+
+            </div>
+
+            <!-- Service 2 -->
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <i class="bi bi-arrow-repeat"></i>
+
+                    <h4>ETL Development</h4>
+
+                    <p>
+                        Extract, transform and load data from
+                        multiple sources into useful systems.
+                    </p>
+
+                    <a href="#contact">Read More →</a>
+
+                </div>
+
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <i class="bi bi-bar-chart-line-fill"></i>
+
+                    <h4>Data Analytics</h4>
+
+                    <p>
+                        Analyze datasets and generate meaningful
+                        insights using modern analytics tools.
+                    </p>
+
+                    <a href="#contact">Read More →</a>
+
+                </div>
+
+            </div>
+
+            <!-- Service 4 -->
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <i class="bi bi-server"></i>
+
+                    <h4>Database Management</h4>
+
+                    <p>
+                        Work with SQL databases and create
+                        efficient database structures.
+                    </p>
+
+                    <a href="#contact">Read More →</a>
+
+                </div>
+
+            </div>
+
+            <!-- Service 5 -->
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <i class="bi bi-cloud-fill"></i>
+
+                    <h4>Cloud Data Solutions</h4>
+
+                    <p>
+                        Explore cloud technologies and build
+                        scalable data infrastructure.
+                    </p>
+
+                    <a href="#contact">Read More →</a>
+
+                </div>
+
+            </div>
+
+            <!-- Service 6 -->
+            <div class="col-lg-4 col-md-6">
+
+                <div class="service-card">
+
+                    <i class="bi bi-graph-up-arrow"></i>
+
+                    <h4>Data Visualization</h4>
+
+                    <p>
+                        Create dashboards and visual reports
+                        to communicate data insights clearly.
+                    </p>
+
+                    <a href="#contact">Read More →</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section id="skills" class="section-padding">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>MY TECHNOLOGIES</span>
+
+            <h2>Data Engineering Skills</h2>
+
+            <p>
+                Technologies and tools that I am learning and
+                using to build data solutions.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Python -->
+            <div class="col-lg-3 col-md-4 col-6">
+
+                <div class="skill-card">
+                    <i class="bi bi-filetype-py"></i>
+                    <h5>Python</h5>
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width: 85%;">
+                            85%
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SQL -->
+            <div class="col-lg-3 col-md-4 col-6">
+
+                <div class="skill-card">
+                    <i class="bi bi-database"></i>
+                    <h5>SQL</h5>
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width: 90%;">
+                            90%
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- MySQL -->
+            <div class="col-lg-3 col-md-4 col-6">
+
+                <div class="skill-card">
+                    <i class="bi bi-database-fill"></i>
+                    <h5>MySQL</h5>
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width: 85%;">
+                            85%
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pandas -->
+            <div class="col-lg-3 col-md-4 col-6">
+
+                <div class="skill-card">
+                    <i class="bi bi-table"></i>
+                    <h5>Pandas</h5>
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width: 80%;">
+                            80%
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Power BI -->
+            <div class="col-lg-3 col-md-4 col-6">
+
+                <div class="skill-card">
+                    <i class="bi bi-pie-chart-fill"></i>
+                    <h5>Power BI</h5>
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width: 75%;">
+                            75%
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Git -->
+            <div class="col-lg-3 col-md-4 col-6">
+
+                <div class="skill-card">
+                    <i class="bi bi-git"></i>
+                    <h5>Git</h5>
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width: 80%;">
+                            80%
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Cloud -->
+            <div class="col-lg-3 col-md-4 col-6">
+
+                <div class="skill-card">
+                    <i class="bi bi-cloud"></i>
+                    <h5>Cloud</h5>
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width: 65%;">
+                            65%
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Linux -->
+            <div class="col-lg-3 col-md-4 col-6">
+
+                <div class="skill-card">
+                    <i class="bi bi-terminal"></i>
+                    <h5>Linux</h5>
+                    <div class="progress">
+                        <div class="progress-bar"
+                             style="width: 70%;">
+                            70%
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section id="projects"
+         class="section-padding projects-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>MY WORK</span>
+
+            <h2>Featured Projects</h2>
+
+            <p>
+                Some projects that demonstrate my programming,
+                data and engineering skills.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Project 1 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="project-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80"
+                        alt="Data Analytics Dashboard">
+
+                    <div class="project-content">
+
+                        <span>DATA ANALYTICS</span>
+
+                        <h4>Sales Analytics Dashboard</h4>
+
+                        <p>
+                            Interactive dashboard for analyzing
+                            sales performance and business insights.
+                        </p>
+
+                        <a href="#">
+                            View Project
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Project 2 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="project-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1000&q=80"
+                        alt="Data Pipeline">
+
+                    <div class="project-content">
+
+                        <span>DATA ENGINEERING</span>
+
+                        <h4>ETL Data Pipeline</h4>
+
+                        <p>
+                            Python-based ETL pipeline for processing
+                            and transforming large datasets.
+                        </p>
+
+                        <a href="#">
+                            View Project
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Project 3 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="project-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1000&q=80"
+                        alt="Database Project">
+
+                    <div class="project-content">
+
+                        <span>DATABASE</span>
+
+                        <h4>Student Management System</h4>
+
+                        <p>
+                            Database-driven system for managing
+                            students, courses and academic records.
+                        </p>
+
+                        <a href="#">
+                            View Project
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Project 4 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="project-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1000&q=80"
+                        alt="Cloud Project">
+
+                    <div class="project-content">
+
+                        <span>CLOUD</span>
+
+                        <h4>Cloud Data Platform</h4>
+
+                        <p>
+                            Conceptual cloud architecture for
+                            scalable data processing.
+                        </p>
+
+                        <a href="#">
+                            View Project
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Project 5 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="project-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1000&q=80"
+                        alt="Python Project">
+
+                    <div class="project-content">
+
+                        <span>PYTHON</span>
+
+                        <h4>Python Data Processing</h4>
+
+                        <p>
+                            Automated data cleaning and processing
+                            application using Python.
+                        </p>
+
+                        <a href="#">
+                            View Project
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Project 6 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="project-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=80"
+                        alt="Portfolio">
+
+                    <div class="project-content">
+
+                        <span>WEB DEVELOPMENT</span>
+
+                        <h4>Portfolio Website</h4>
+
+                        <p>
+                            Responsive portfolio website created
+                            using HTML, CSS and Bootstrap.
+                        </p>
+
+                        <a href="#">
+                            View Project
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EDUCATION
+===================================================== -->
+
+<section id="education" class="section-padding">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>MY JOURNEY</span>
+
+            <h2>Education</h2>
+
+            <p>
+                My academic journey and technical learning.
+            </p>
+
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon">
+                    <i class="bi bi-mortarboard-fill"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <span>2024/2028 - Present</span>
+
+                    <h3>
+                        B.Tech in Data Science Engineering
+                    </h3>
+
+                    <p>
+                        Studying data science, programming,
+                        databases, machine learning, statistics
+                        and modern computing technologies.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon">
+                    <i class="bi bi-code-slash"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <span>Technical Learning</span>
+
+                    <h3>
+                        Programming & Web Development
+                    </h3>
+
+                    <p>
+                        Learning HTML, CSS, JavaScript, Python,
+                        Django, SQL, databases and backend development.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-icon">
+                    <i class="bi bi-bar-chart-fill"></i>
+                </div>
+
+                <div class="timeline-content">
+
+                    <span>Current Focus</span>
+
+                    <h3>
+                        Data Engineering
+                    </h3>
+
+                    <p>
+                        Developing skills in ETL, data pipelines,
+                        SQL, Python, cloud platforms and analytics.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact"
+         class="section-padding contact-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <span>GET IN TOUCH</span>
+
+            <h2>Contact Me</h2>
+
+            <p>
+                Have a project idea or opportunity?
+                Send me a message.
+            </p>
+
+        </div>
+
+        <div class="row g-5">
+
+            <!-- Contact Information -->
+
+            <div class="col-lg-5">
+
+                <h3>Let's Talk</h3>
+
+                <p>
+                    I am always interested in learning new technologies,
+                    working on projects and discussing data engineering.
+                </p>
+
+                <div class="contact-info">
+
+                    <div>
+                        <i class="bi bi-envelope-fill"></i>
+
+                        <div>
+                            <strong>Email</strong>
+                            <p>rp878697@Gmail.com</p>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <i class="bi bi-telephone-fill"></i>
+
+                        <div>
+                            <strong>Phone</strong>
+                            <p>+91 7666406392</p>
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <i class="bi bi-geo-alt-fill"></i>
+
+                        <div>
+                            <strong>Location</strong>
+                            <p>India</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="social-links">
+
+                    <a href="#">
+                        <i class="bi bi-github"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Contact Form -->
+
+            <div class="col-lg-7">
+
+                <form method="POST" class="contact-form">
+  {% csrf_token %}
+  <div class="row g-3">
+    <div class="col-md-6">
+      <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+    </div>
+    <div class="col-md-6">
+      <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+    </div>
+    <div class="col-12">
+      <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+    </div>
+    <div class="col-12">
+      <textarea class="form-control" name="message" rows="6" placeholder="Your Message" required></textarea>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary-custom">Send Message</button>
+    </div>
+  </div>
+</form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-5">
+
+                <h3>
+                    <i class="bi bi-database-fill"></i>
+                    TECH<span>ROHIT</span>
+                </h3>
+
+                <p>
+                    Building modern data solutions with passion,
+                    technology and continuous learning.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-3">
+
+                <h5>Quick Links</h5>
+
+                <ul>
+
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="#services">Services</a>
+                    </li>
+
+                    <li>
+                        <a href="#projects">Projects</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h5>Follow Me</h5>
+
+                <div class="footer-social">
+
+                    <a href="#">
+                        <i class="bi bi-github"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+        <div class="copyright">
+
+            <p>
+                © 2026 Rohit Pawar. All Rights Reserved.
+            </p>
+
+            <p>
+                Designed & Developed By ❤️ ROHIT-N-PAWAR
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>
+```
